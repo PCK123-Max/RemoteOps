@@ -1,3 +1,12 @@
+/*
+ ============================================================================
+ Project Name : RemoteOps
+ File Name    : agent_098.c
+ Author       : IT24101098
+ Description  : TCP Server Agent listening on port 9410 for remote commands.
+ ============================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -49,11 +58,9 @@ int main() {
 
     printf("Controller connected! Waiting for command...\n");
 
-    // Read command from controller
     read(client_fd, buffer, BUFFER_SIZE);
     printf("Received command: %s\n", buffer);
 
-    // Execute command and capture output
     FILE *fp = popen(buffer, "r");
     if (fp == NULL) {
         strcpy(response, "Failed to run command.");
@@ -63,7 +70,6 @@ int main() {
         pclose(fp);
     }
 
-    // Send output back to controller
     write(client_fd, response, strlen(response));
 
     close(client_fd);
