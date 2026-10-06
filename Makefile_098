@@ -1,0 +1,13 @@
+CC = gcc
+CFLAGS = -Wall
+
+all: agent controller
+
+agent: agent_098.c
+	$(CC) $(CFLAGS) agent_098.c -o agent_098
+
+controller: controller_098.c
+	$(CC) $(CFLAGS) controller_098.c -o controller_098
+
+clean:
+	rm -f agent_098 controller_098
