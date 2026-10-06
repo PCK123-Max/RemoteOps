@@ -1,3 +1,12 @@
+/*
+ ============================================================================
+ Project Name : RemoteOps
+ File Name    : controller_098.c
+ Author       : IT24101098
+ Description  : TCP Client Controller that connects to port 9410 and sends commands.
+ ============================================================================
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -38,11 +47,10 @@ int main(int argc, char const *argv[]) {
     printf("Enter command to execute on Agent (e.g., uname -a): ");
     
     if (fgets(command, sizeof(command), stdin) != NULL) {
-        command[strcspn(command, "\n")] = 0; // Remove newline
+        command[strcspn(command, "\n")] = 0;
         write(sock, command, strlen(command));
     }
 
-    // Read response from agent
     int valread = read(sock, buffer, BUFFER_SIZE - 1);
     if (valread > 0) {
         buffer[valread] = '\0';
