@@ -1,13 +1,19 @@
+# ==============================================================================
+# Makefile for RemoteOps (Student ID: IT24101098)
+# ==============================================================================
+
 CC = gcc
-CFLAGS = -Wall
+CFLAGS = -Wall -Wextra
 
-all: agent controller
+all: agent_098 controller_098
 
-agent: agent_098.c
+agent_098: agent_098.c
 	$(CC) $(CFLAGS) agent_098.c -o agent_098
 
-controller: controller_098.c
+controller_098: controller_098.c
 	$(CC) $(CFLAGS) controller_098.c -o controller_098
 
 clean:
 	rm -f agent_098 controller_098
+
+.PHONY: all clean
