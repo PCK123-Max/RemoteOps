@@ -1,0 +1,8 @@
+RemoteOps Execution Log
+Student ID: IT24101098
+Port: 9410
+Status: Verified successfully on CentOS 10 local loopback interface.
+Tests performed:
+1. TCP Socket Binding & Port Listening
+2. Client-Server Connection Handshake
+3. Remote Shell Command Execution (uname -a, uptime)
